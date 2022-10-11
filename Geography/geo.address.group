@@ -3,3 +3,4 @@ config firewall addrgrp
         set member "geo.china" "geo.cuba" "geo.iraq" "geo.iran" "geo.southsudan" "geo.afghanistan" "geo.libyan" "geo.pakistan" "geo.ukraine" "geo.yemen" "geo.northkorea" "geo.seychelles" "geo.indonesia" "geo.kazakhstan" "geo.lebanon" "geo.russian.federation" "geo.venezuela" "geo.hungary" "geo.vietnam" "geo.romania" "geo.nigeria" "geo.turkey" "geo.palenstine" "geo.taiwan" "geo.panama" "geo.poland" "geo.serbia" "geo.bulgaria" "geo.azerbaijan" "geo.hongkong" "geo.netherlands" <---
     next
 end
+
