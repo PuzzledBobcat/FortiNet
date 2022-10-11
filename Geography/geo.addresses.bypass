@@ -1,0 +1,5 @@
+config firewall addrgrp
+    edit "addgrp.geo.bypass.fqdn" 
+        set member "fqdn.teamviewer.com"
+    next
+end

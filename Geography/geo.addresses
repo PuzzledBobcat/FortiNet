@@ -1,0 +1,130 @@
+config firewall address
+    edit "geo.usa" 
+        set type geography 
+        set country "US"
+    next
+    edit "geo.china" 
+        set type geography 
+        set country "CN"
+    next
+    edit "geo.afghanistan" 
+        set type geography 
+        set country "AF"
+    next
+    edit "geo.cuba" 
+        set type geography 
+        set country "CU"
+    next
+    edit "geo.hungary" 
+        set type geography 
+        set country "HU"
+    next
+    edit "geo.indonesia" 
+        set type geography 
+        set country "ID"
+    next
+    edit "geo.iran" 
+        set type geography 
+        set country "IR"
+    next
+    edit "geo.iraq" 
+        set type geography 
+        set country "IQ"
+    next
+    edit "geo.kazakhstan" 
+        set type geography 
+        set country "KZ"
+    next
+    edit "geo.lebanon" 
+        set type geography 
+        set country "LB"
+    next
+    edit "geo.libyan" 
+        set type geography 
+        set country "LY"
+    next
+    edit "geo.nigeria" 
+        set type geography 
+        set country "NG"
+    next
+    edit "geo.northkorea" 
+        set type geography 
+        set country "KP"
+    next
+    edit "geo.pakistan" 
+        set type geography 
+        set country "PK"
+    next
+    edit "geo.palenstine" 
+        set type geography 
+        set country "PS"
+    next
+    edit "geo.romania" 
+        set type geography 
+        set country "RO"
+    next
+    edit "geo.russian.federation" 
+        set type geography 
+        set country "RU"
+    next
+    edit "geo.seychelles" 
+        set type geography 
+        set country "SC"
+    next
+    edit "geo.southsudan" 
+        set type geography 
+        set country "SS"
+    next
+    edit "geo.taiwan" 
+        set type geography 
+        set country "TW"
+    next
+    edit "geo.turkey" 
+        set type geography 
+        set country "TR"
+    next
+    edit "geo.ukraine" 
+        set type geography 
+        set country "UA"
+    next
+    edit "geo.venezuela" 
+        set type geography 
+        set country "VE"
+    next
+    edit "geo.vietnam" 
+        set type geography 
+        set country "VN"
+    next
+    edit "geo.yemen" 
+        set type geography 
+        set country "YE"
+    next
+    edit "geo.azerbaijan" 
+        set type geography 
+        set country "AZ"
+    next
+    edit "geo.bulgaria" 
+        set type geography 
+        set country "BG"
+    next
+    edit "geo.hongkong" 
+        set type geography 
+        set country "HK"
+    next
+    edit "geo.netherlands" 
+        set type geography 
+        set country "NL"
+    next
+    edit "geo.panama" 
+        set type geography 
+        set country "PA"
+    next
+    edit "geo.poland" 
+        set type geography 
+        set country "PL"
+    next
+    edit "geo.serbia" 
+        set type geography 
+        set country "RS"
+    next
+end
