@@ -1,0 +1,88 @@
+config vpn ipsec phase1-interface
+edit "ADVPN1"
+set type ddns
+set interface $(sdvpn1-wan-int)
+set ike-version 2
+set authmethod signature
+set keylife 28800
+set peertype any
+set net-device enable
+set mode-cfg enable
+set proposal aes256-sha256
+set add-route disable
+set idle-timeout enable
+set auto-discovery-receiver enable
+set auto-discovery-shortcuts dependent
+set network-overlay enable
+set network-id 10
+set remotegw-ddns hub1-dia1.fortiddns.com
+set certificate "crt.advpn.sites"
+set dpd-retrycount 3
+set dpd-retryinterval 5
+set dpd on-idle
+set dhgrp 21 20 19
+next
+
+edit "ADVPN2"
+set type ddns
+set interface $(sdvpn2-wan-int)
+set ike-version 2
+set authmethod signature
+set keylife 28800
+set peertype any
+set net-device enable
+set mode-cfg enable
+set proposal aes256-sha256
+set add-route disable
+set idle-timeout enable
+set auto-discovery-receiver enable
+set auto-discovery-shortcuts dependent
+set network-overlay enable
+set network-id 20
+set remotegw-ddns hub1-dia2.fortiddns.com
+set certificate "crt.advpn.sites"
+set dpd-retrycount 3
+set dpd-retryinterval 5
+set dpd on-idle
+set dhgrp 21 20 19
+next
+end
+
+config vpn ipsec phase2-interface
+edit "ADVPN1"
+set phase1name "ADVPN1"
+set proposal aes256-sha256
+set keepalive enable
+set keylifeseconds 3600
+set dhgrp 21 20 19
+next
+edit "ADVPN2"
+set phase1name "ADVPN2"
+set proposal aes256-sha256
+set keepalive enable
+set keylifeseconds 3600
+set dhgrp 21 20 19
+next
+end
+
+
+config system interface
+edit "ADVPN1"
+set vdom "root"
+set allowaccess ping
+set type tunnel
+set estimated-upstream-bandwidth 1024000
+set estimated-downstream-bandwidth 1024000
+set monitor-bandwidth enable
+set role wan
+next
+edit "ADVPN2"
+set vdom "root"
+set allowaccess ping
+set type tunnel
+set estimated-upstream-bandwidth 1024000
+set estimated-downstream-bandwidth 1024000
+set monitor-bandwidth enable
+set role wan
+next
+end 

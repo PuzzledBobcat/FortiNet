@@ -1,0 +1,78 @@
+config voip profile
+    edit "default"
+        set comment "Default VoIP profile."
+        config sip
+            set status disable
+        end
+    next
+end
+
+config system ddns
+    edit 1
+        set ddns-server FortiGuardDDNS
+        set ddns-domain "$(ddns-hostname)-dia1.fortiddns.com"
+        set use-public-ip enable
+        set monitor-interface "$(dia1-wan-int)"
+    next
+    edit 2
+        set ddns-server FortiGuardDDNS
+        set ddns-domain "$(ddns-hostname)-dia2.fortiddns.com"
+        set use-public-ip enable
+        set monitor-interface "$(dia2-wan-int)"
+    next
+end
+
+config system global
+    set gui-certificates enable
+    set revision-backup-on-logout enable
+    set revision-image-auto-backup enable
+    set timezone $(tz)
+    set gui-firmware-upgrade-warning disable
+   set autorun-log-fsck enable
+end
+
+config system settings
+    set sip-nat-trace disable
+    set default-voip-alg-mode kernel-helper-based
+    set gui-dynamic-routing enable
+end
+
+config system dns
+    set domain "customer.domain"
+end
+
+config log fortiguard setting
+    set status disable
+    set source-ip 0.0.0.0
+    set interface-select-method auto
+end
+
+config firewall address
+    edit "net.192.168.0.0-16"
+        set allow-routing enable
+        set subnet 192.168.0.0 255.255.0.0
+    next
+    edit "net.10.0.0.0-8"
+        set allow-routing enable
+        set subnet 10.0.0.0 255.0.0.0
+    next
+    edit "net.172.16.0.0-12"
+        set allow-routing enable
+        set subnet 172.16.0.0 255.240.0.0
+    next
+end
+
+config firewall addrgrp
+    edit "addgrp.net.rfc1918"
+        set member "net.192.168.0.0-16" "net.10.0.0.0-8" "net.172.16.0.0-12"
+        set allow-routing enable
+    next
+end
+
+config router static
+     edit 99
+        set comment "[Created by CLI Template: cli.sys.defaults]"
+        set blackhole enable
+        set dstaddr "addgrp.net.rfc1918"
+    next
+end
